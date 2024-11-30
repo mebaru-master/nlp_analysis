@@ -2,6 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import pandas as pd
+import plotly.express as px
 
 # .envを読み込む
 load_dotenv()
@@ -19,3 +20,8 @@ except FileNotFoundError:
     sys.exit(1)
 
 print(df)
+print(df.columns)
+
+# プロットする
+fig = px.scatter(df, x='Linear Acceleration x (m/s^2)', y='Linear Acceleration y (m/s^2)')
+fig.show()
